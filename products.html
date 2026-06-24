@@ -807,6 +807,19 @@
     });
   });
 
+  // deep-link from other pages: products.html?brand=<filter>  (also supports #<filter>)
+  (function(){
+    var p=new URLSearchParams(location.search).get('brand');
+    if(!p && location.hash) p=decodeURIComponent(location.hash.slice(1));
+    if(!p) return;
+    p=p.toLowerCase();
+    var chip=document.querySelector('.chip[data-filter="'+p+'"]');
+    if(!chip) return;
+    applyFilter(p);
+    var target=document.querySelector('.brand-group[data-brand="'+p+'"]');
+    if(target) setTimeout(function(){ target.scrollIntoView({behavior:'smooth',block:'start'}); },120);
+  })();
+
   // reveal on scroll
   const io=new IntersectionObserver((entries)=>{
     entries.forEach((e)=>{
