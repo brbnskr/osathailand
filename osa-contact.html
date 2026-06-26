@@ -1208,5 +1208,116 @@
     } else { init(); }
   })();
 </script>
+<!-- ===== Floating Contact CTA ===== -->
+<style id="osa-fab-style">
+  .osa-fab-wrap{position:fixed;right:26px;bottom:26px;z-index:1200;font-family:var(--font,'Kanit',sans-serif)}
+  .osa-fab-toggle{position:relative;width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(135deg,var(--osa-blue,#2D559B),var(--osa-blue-bright,#3a6cc0));color:#fff;
+    box-shadow:0 12px 30px rgba(45,85,155,.45);display:flex;align-items:center;justify-content:center;
+    transition:transform .25s,box-shadow .25s}
+  .osa-fab-toggle:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 16px 38px rgba(45,85,155,.55)}
+  .osa-fab-toggle svg{width:28px;height:28px;position:absolute;transition:opacity .2s,transform .3s}
+  .osa-fab-toggle .ic-x{opacity:0;transform:rotate(-90deg) scale(.6)}
+  .osa-fab-wrap.open .osa-fab-toggle .ic-chat{opacity:0;transform:rotate(90deg) scale(.6)}
+  .osa-fab-wrap.open .osa-fab-toggle .ic-x{opacity:1;transform:none}
+  .osa-fab-pulse{position:absolute;inset:0;border-radius:50%;background:var(--osa-blue,#2D559B);z-index:-1;
+    animation:osaFabPulse 2.4s ease-out infinite}
+  .osa-fab-wrap.open .osa-fab-pulse{display:none}
+  @keyframes osaFabPulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.6);opacity:0}100%{opacity:0}}
+  .osa-fab-panel{position:absolute;right:0;bottom:78px;width:336px;max-width:calc(100vw - 36px);
+    background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 26px 64px rgba(22,41,76,.30);
+    transform-origin:bottom right;transform:translateY(14px) scale(.95);opacity:0;visibility:hidden;
+    transition:transform .26s cubic-bezier(.2,.8,.2,1),opacity .2s,visibility .26s}
+  .osa-fab-wrap.open .osa-fab-panel{opacity:1;visibility:visible;transform:none}
+  .osa-fab-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;
+    background:linear-gradient(135deg,var(--osa-blue-deep,#16294c),var(--osa-blue,#2D559B));color:#fff}
+  .osa-fab-head b{font-size:1.02rem;font-weight:700;line-height:1.2}
+  .osa-fab-head small{display:block;font-weight:300;font-size:.74rem;color:#bcd0ee;margin-top:2px}
+  .osa-fab-x{background:rgba(255,255,255,.16);border:none;color:#fff;width:30px;height:30px;border-radius:50%;
+    font-size:20px;line-height:1;cursor:pointer;flex:none}
+  .osa-fab-x:hover{background:rgba(255,255,255,.3)}
+  .osa-fab-body{max-height:min(66vh,520px);overflow-y:auto}
+  .osa-fab-dept{padding:14px 18px;border-bottom:1px solid var(--line,rgba(45,85,155,.12))}
+  .osa-fab-dept:last-child{border-bottom:none}
+  .osa-fab-dept-name{font-weight:700;font-size:.95rem;color:var(--osa-blue-deep,#16294c)}
+  .osa-fab-person{font-size:.78rem;color:var(--osa-gray,#5A5A5A);font-weight:300;margin:1px 0 9px}
+  .osa-fab-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .osa-fab-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    padding:9px 4px;border-radius:11px;font-size:.74rem;font-weight:600;text-decoration:none;
+    border:1px solid var(--line,rgba(45,85,155,.14));transition:transform .15s,box-shadow .15s,background .15s,color .15s}
+  .osa-fab-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(22,41,76,.16)}
+  .osa-fab-ic{display:flex}.osa-fab-ic svg{width:19px;height:19px}
+  .osa-fab-btn.ln{color:#06C755;background:rgba(6,199,85,.08);border-color:rgba(6,199,85,.25)}
+  .osa-fab-btn.ln:hover{background:#06C755;color:#fff}
+  .osa-fab-btn.tl{color:var(--osa-blue,#2D559B);background:rgba(45,85,155,.07)}
+  .osa-fab-btn.tl:hover{background:var(--osa-blue,#2D559B);color:#fff}
+  .osa-fab-btn.em{color:var(--osa-gray,#5A5A5A);background:#f3f5f9}
+  .osa-fab-btn.em:hover{background:var(--osa-blue-deep,#16294c);color:#fff}
+  .osa-fab-phone{font-size:.74rem;color:var(--osa-gray-light,#8a8a8a);margin-top:8px;text-align:right;font-weight:300}
+  @media(max-width:640px){
+    .osa-fab-wrap{right:16px;bottom:16px}
+    .osa-fab-toggle{width:56px;height:56px}
+    .osa-fab-toggle svg{width:25px;height:25px}
+    .osa-fab-panel{bottom:70px;width:calc(100vw - 32px)}
+    .osa-fab-btn{font-size:.72rem;padding:8px 3px}
+  }
+</style>
+<div class="osa-fab-wrap" id="osaFab">
+  <div class="osa-fab-panel" id="osaFabPanel" role="dialog" aria-label="Contact our team" aria-hidden="true">
+    <div class="osa-fab-head">
+      <span><b>Contact Our Team</b><small>Choose a department &middot; Line, Phone or Email</small></span>
+      <button class="osa-fab-x" id="osaFabClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="osa-fab-body">
+        <div class="osa-fab-dept">
+          <div class="osa-fab-dept-name">Valve Product</div>
+          <div class="osa-fab-person">Nattapon Yodman (Bond)</div>
+          <div class="osa-fab-actions">
+            <a class="osa-fab-btn ln" href="https://line.me/R/ti/p/~@osathailand" target="_blank" rel="noopener"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 4 3.6 7.3 8.4 7.9.3.07.8.2.9.5.08.25.05.64.03.9l-.14.83c-.04.25-.2 1 .88.55 1.07-.46 5.77-3.4 7.87-5.82C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg></span>LINE</a>
+            <a class="osa-fab-btn tl" href="tel:+66909709141"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Call</a>
+            <a class="osa-fab-btn em" href="mailto:nattapon.y@osathailand.com"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email</a>
+          </div>
+          <div class="osa-fab-phone">+66 90 970 9141</div>
+        </div>
+        <div class="osa-fab-dept">
+          <div class="osa-fab-dept-name">Valve Services</div>
+          <div class="osa-fab-person">Niphon Khiawprommas (Phon)</div>
+          <div class="osa-fab-actions">
+            <a class="osa-fab-btn ln" href="https://line.me/R/ti/p/~@osathailand" target="_blank" rel="noopener"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 4 3.6 7.3 8.4 7.9.3.07.8.2.9.5.08.25.05.64.03.9l-.14.83c-.04.25-.2 1 .88.55 1.07-.46 5.77-3.4 7.87-5.82C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg></span>LINE</a>
+            <a class="osa-fab-btn tl" href="tel:+66812497673"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Call</a>
+            <a class="osa-fab-btn em" href="mailto:niphon.k@osathailand.com"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email</a>
+          </div>
+          <div class="osa-fab-phone">+66 81 249 7673</div>
+        </div>
+        <div class="osa-fab-dept">
+          <div class="osa-fab-dept-name">Control Solutions &amp; Governor</div>
+          <div class="osa-fab-person">Viriya Sodsirisawad (Yah)</div>
+          <div class="osa-fab-actions">
+            <a class="osa-fab-btn ln" href="https://line.me/R/ti/p/~@osathailand" target="_blank" rel="noopener"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 4 3.6 7.3 8.4 7.9.3.07.8.2.9.5.08.25.05.64.03.9l-.14.83c-.04.25-.2 1 .88.55 1.07-.46 5.77-3.4 7.87-5.82C21.4 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg></span>LINE</a>
+            <a class="osa-fab-btn tl" href="tel:+66817530606"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Call</a>
+            <a class="osa-fab-btn em" href="mailto:viriya.s@osathailand.com"><span class="osa-fab-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email</a>
+          </div>
+          <div class="osa-fab-phone">+66 81 753 0606</div>
+        </div>
+    </div>
+  </div>
+  <button class="osa-fab-toggle" id="osaFabToggle" aria-label="Contact us" aria-expanded="false">
+    <span class="osa-fab-pulse"></span>
+    <svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.6 9.6 0 0 1-4-.9L3 20l1-3.9A8.4 8.4 0 1 1 21 11.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12" stroke-linecap="round"/></svg>
+  </button>
+</div>
+<script id="osa-fab-js">
+(function(){
+  var wrap=document.getElementById('osaFab'),tog=document.getElementById('osaFabToggle'),
+      cls=document.getElementById('osaFabClose'),panel=document.getElementById('osaFabPanel');
+  if(!wrap||!tog) return;
+  function set(o){wrap.classList.toggle('open',o);tog.setAttribute('aria-expanded',o);panel.setAttribute('aria-hidden',!o);}
+  tog.addEventListener('click',function(e){e.stopPropagation();set(!wrap.classList.contains('open'));});
+  if(cls)cls.addEventListener('click',function(){set(false);});
+  document.addEventListener('click',function(e){if(!wrap.contains(e.target))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+</script>
 </body>
 </html>
