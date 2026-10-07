@@ -507,6 +507,22 @@
   /* full-width contact info (no map) */
   .contact-info-full{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:50px}
   @media(max-width:680px){.contact-info-full{grid-template-columns:1fr}}
+  /* 3 department cards */
+  .contact-3{grid-template-columns:repeat(3,1fr)}
+  .ci-card{flex-direction:column;align-items:flex-start;gap:14px;padding:26px 26px 24px}
+  .ci-card .email-dept{margin-bottom:4px}
+  .ci-card .ci-phone{display:flex;align-items:center;gap:10px;font-size:1.12rem;font-weight:500;color:#e6efFb;letter-spacing:-.01em;line-height:1.2;transition:color .2s}
+  .ci-card .ci-phone:hover{color:#9ec0f0}
+  .ci-card .ci-phone svg{width:22px;height:22px;color:#9ec0f0;flex:none}
+  .ci-card .ci-person{display:flex;align-items:center;gap:10px}
+  .ci-card .ci-person svg{width:20px;height:20px;color:#9ec0f0;flex:none}
+  .ci-card .ct-name{font-size:1.08rem;color:#fff;font-weight:600;letter-spacing:-.01em}
+  .ci-card .ct-name b{color:#9ec0f0;font-weight:500}
+  .ci-card .ci-mail{display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(255,255,255,.78);word-break:break-all;transition:color .2s;margin-top:auto;padding-top:12px;border-top:1px solid var(--white-line);width:100%}
+  .ci-card .ci-mail:hover{color:#9ec0f0}
+  .ci-card .ci-mail svg{width:16px;height:16px;color:#9ec0f0;flex:none}
+  @media(max-width:980px){.contact-3{grid-template-columns:1fr 1fr}}
+  @media(max-width:680px){.contact-3{grid-template-columns:1fr}}
 
 
   /* ===== Language switcher ===== */
@@ -695,56 +711,28 @@
     <div class="sec-head reveal" style="margin-bottom:0">
       <div>
         <div class="eyebrow">// Contact Us</div>
-        <h2 class="sec-title">ช่องทางติดต่อ</h2>
-        <p class="sec-sub">ทีมงานของเราพร้อมให้คำปรึกษาและสนับสนุนงานของคุณ ติดต่อเราได้ที่สำนักงานในจังหวัดระยอง หรือผ่านช่องทางด้านล่าง</p>
+        <h2 class="sec-title">Contact Channels</h2>
+        <p class="sec-sub">Our team is ready to consult and support your work. Reach us at our Rayong office or through the channels below.</p>
       </div>
     </div>
-    <div class="contact-info contact-info-full">
-        <div class="ci-item reveal">
-          <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" stroke-linejoin="round"/></svg></div>
-          <div class="ci-text">
-            <div class="lbl">Tel</div>
-            <div class="email-list">
-              <div class="email-row">
-                <span class="email-dept">Valve Product</span>
-                <a class="val email-addr" href="tel:+66909709141">(+66) 90 970 9141</a>
-                <span class="ct-name">Nattapon Yodman <b>(Bond)</b></span>
-              </div>
-              <div class="email-row">
-                <span class="email-dept">Valve Services</span>
-                <a class="val email-addr" href="tel:+66812497673">(+66) 81 249 7673</a>
-                <span class="ct-name">Niphon Khiawprommas <b>(Phon)</b></span>
-              </div>
-              <div class="email-row">
-                <span class="email-dept">Woodward Governors Service &amp; Control Solutions</span>
-                <a class="val email-addr" href="tel:+66817530606">(+66) 81 753 0606</a>
-                <span class="ct-name">Viriya Sodsirisawad <b>(Yah)</b></span>
-              </div>
-            </div>
-          </div>
+    <div class="contact-info contact-info-full contact-3">
+        <div class="ci-item ci-card reveal">
+          <span class="email-dept">Valve Product</span>
+          <div class="ci-person"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round"/></svg><span class="ct-name">Nattapon Yodman <b>(Bond)</b></span></div>
+          <a class="ci-phone" href="tel:+66909709141"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>(+66) 90 970 9141</span></a>
+          <a class="ci-mail" href="mailto:nattapon.y@osathailand.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 6 8-6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>nattapon.y@osathailand.com</span></a>
         </div>
-        <div class="ci-item reveal">
-          <div class="ci-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 6 8-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="ci-text">
-            <div class="lbl">อีเมล</div>
-            <div class="email-list">
-              <div class="email-row">
-                <span class="email-dept">Valve Product</span>
-                <a class="val email-addr" href="mailto:nattapon.y@osathailand.com">nattapon.y@osathailand.com</a>
-                <span class="ct-name">Nattapon Yodman <b>(Bond)</b></span>
-              </div>
-              <div class="email-row">
-                <span class="email-dept">Valve Services</span>
-                <a class="val email-addr" href="mailto:niphon.k@osathailand.com">niphon.k@osathailand.com</a>
-                <span class="ct-name">Niphon Khiawprommas <b>(Phon)</b></span>
-              </div>
-              <div class="email-row">
-                <span class="email-dept">Woodward Governors Service &amp; Control Solutions</span>
-                <a class="val email-addr" href="mailto:viriya.s@osathailand.com">viriya.s@osathailand.com</a>
-                <span class="ct-name">Viriya Sodsirisawad <b>(Yah)</b></span>
-              </div>
-            </div>
-          </div>
+        <div class="ci-item ci-card reveal">
+          <span class="email-dept">Valve Services</span>
+          <div class="ci-person"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round"/></svg><span class="ct-name">Niphon Khiawprommas <b>(Phon)</b></span></div>
+          <a class="ci-phone" href="tel:+66812497673"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>(+66) 81 249 7673</span></a>
+          <a class="ci-mail" href="mailto:niphon.k@osathailand.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 6 8-6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>niphon.k@osathailand.com</span></a>
+        </div>
+        <div class="ci-item ci-card reveal">
+          <span class="email-dept">Control Solutions &amp; Governor</span>
+          <div class="ci-person"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0" stroke-linecap="round"/></svg><span class="ct-name">Viriya Sodsirisawad <b>(Yah)</b></span></div>
+          <a class="ci-phone" href="tel:+66817530606"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" stroke-linecap="round" stroke-linejoin="round"/></svg><span>(+66) 81 753 0606</span></a>
+          <a class="ci-mail" href="mailto:viriya.s@osathailand.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 6 8-6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>viriya.s@osathailand.com</span></a>
         </div>
     </div>
   </div>
