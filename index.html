@@ -1042,7 +1042,7 @@
         <div class="rcat">Valve Service</div>
         <h3>Safety Valve Service</h3>
         <p>Testing, overhaul, repair, and recertification of safety &amp; relief valves — pop testing, set-pressure adjustment, and seat lapping to API and ASME standards.</p>
-        <a href="osa-valve-services.html" class="res-link">Learn More
+        <a href="osa-service-safety-valve.html" class="res-link">Learn More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1052,7 +1052,7 @@
         <div class="rcat">Tank Protection</div>
         <h3>Pressure Vacuum Vent Valve Service</h3>
         <p>Inspection, cleaning, and set-point verification of pressure/vacuum vent (breather) valves to keep storage tanks protected and compliant.</p>
-        <a href="osa-valve-services.html" class="res-link">Learn More
+        <a href="osa-service-pressure-vacuum-vent-valve.html" class="res-link">Learn More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1062,7 +1062,7 @@
         <div class="rcat">Control &amp; Automation</div>
         <h3>Control Valve Services</h3>
         <p>Diagnostics, calibration, positioner setup, trim replacement, and actuator service to restore accurate, responsive control performance.</p>
-        <a href="osa-valve-services.html" class="res-link">Learn More
+        <a href="osa-service-control-valve.html" class="res-link">Learn More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1072,7 +1072,7 @@
         <div class="rcat">Valve Service</div>
         <h3>Manual Valve Services</h3>
         <p>Overhaul of gate, globe, ball, and butterfly valves — disassembly, seat repair, repacking, reassembly, and pressure testing before return.</p>
-        <a href="osa-valve-services.html" class="res-link">Learn More
+        <a href="osa-service-manual-valve.html" class="res-link">Learn More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1082,7 +1082,7 @@
         <div class="rcat">In-House Facility</div>
         <h3>Machining</h3>
         <p>In-house machining and lapping of seats, discs, nozzles, and flange faces — restoring worn components to OEM specifications.</p>
-        <a href="osa-valve-services.html" class="res-link">Learn More
+        <a href="osa-service-machining.html" class="res-link">Learn More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1092,7 +1092,7 @@
         <div class="rcat">Parts &amp; Logistics</div>
         <h3>Mobilize tools</h3>
         <p>Ready stock of valves, spare parts, and consumables for fast turnaround, project support, and urgent on-site service.</p>
-        <a href="osa-valve-services.html" class="res-link">Learn More
+        <a href="osa-service-mobilize-tools.html" class="res-link">Learn More
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1865,6 +1865,19 @@
   .osa-fab-btn.em{color:var(--osa-gray,#5A5A5A);background:#f3f5f9}
   .osa-fab-btn.em:hover{background:var(--osa-blue-deep,#16294c);color:#fff}
   .osa-fab-phone{font-size:.74rem;color:var(--osa-gray-light,#8a8a8a);margin-top:8px;text-align:right;font-weight:300}
+  /* Desktop: show every contact without scrolling */
+  @media(min-width:641px){
+    .osa-fab-body{max-height:calc(100vh - 200px)}
+  }
+  @media(min-width:641px) and (max-height:760px){
+    .osa-fab-panel{width:452px}
+    .osa-fab-dept{display:grid;grid-template-columns:1fr auto;column-gap:14px;align-items:center;padding:11px 18px}
+    .osa-fab-dept-name,.osa-fab-person,.osa-fab-phone{grid-column:1}
+    .osa-fab-person{margin:1px 0 0}
+    .osa-fab-phone{margin-top:2px;text-align:left}
+    .osa-fab-actions{grid-column:2;grid-row:1/span 3;grid-template-columns:repeat(3,54px);gap:6px}
+    .osa-fab-btn{padding:7px 2px}
+  }
   @media(max-width:640px){
     .osa-fab-wrap{right:16px;bottom:16px}
     .osa-fab-toggle{width:56px;height:56px}
