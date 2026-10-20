@@ -1361,6 +1361,19 @@ window.OSA_PRODUCT_DETAIL = {
   .osa-fab-btn.em{color:var(--osa-gray,#5A5A5A);background:#f3f5f9}
   .osa-fab-btn.em:hover{background:var(--osa-blue-deep,#16294c);color:#fff}
   .osa-fab-phone{font-size:.74rem;color:var(--osa-gray-light,#8a8a8a);margin-top:8px;text-align:right;font-weight:300}
+  /* Desktop: show every contact without scrolling */
+  @media(min-width:641px){
+    .osa-fab-body{max-height:calc(100vh - 200px)}
+  }
+  @media(min-width:641px) and (max-height:760px){
+    .osa-fab-panel{width:452px}
+    .osa-fab-dept{display:grid;grid-template-columns:1fr auto;column-gap:14px;align-items:center;padding:11px 18px}
+    .osa-fab-dept-name,.osa-fab-person,.osa-fab-phone{grid-column:1}
+    .osa-fab-person{margin:1px 0 0}
+    .osa-fab-phone{margin-top:2px;text-align:left}
+    .osa-fab-actions{grid-column:2;grid-row:1/span 3;grid-template-columns:repeat(3,54px);gap:6px}
+    .osa-fab-btn{padding:7px 2px}
+  }
   @media(max-width:640px){
     .osa-fab-wrap{right:16px;bottom:16px}
     .osa-fab-toggle{width:56px;height:56px}
