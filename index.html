@@ -317,8 +317,9 @@
   .highlights li{background:var(--paper-blue);border:1px solid var(--line);padding:16px 22px;display:flex;align-items:center;gap:16px;font-weight:500;font-size:1rem;color:var(--ink);border-radius:var(--r);transition:transform .2s,box-shadow .2s}
   .highlights li:hover{transform:translateX(5px);box-shadow:var(--shadow-sm)}
   .highlights li .check{width:24px;height:24px;flex:none;color:#fff;background:var(--osa-blue);border-radius:50%;padding:5px;box-sizing:content-box}
-  .std-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-  .std-tags span{font-size:.8rem;font-weight:500;letter-spacing:.04em;padding:8px 16px;border:1px solid var(--line-soft);border-radius:100px;color:var(--osa-blue);background:var(--osa-blue-tint)}
+  .std-tags{display:flex;flex-wrap:nowrap;gap:8px;margin-top:26px}
+  @media(max-width:640px){.std-tags{flex-wrap:wrap}}
+  .std-tags span{font-size:.72rem;font-weight:500;letter-spacing:.03em;white-space:nowrap;padding:7px 12px;border:1px solid var(--line-soft);border-radius:100px;color:var(--osa-blue);background:var(--osa-blue-tint)}
 
   /* certificate showcase */
   .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -1325,18 +1326,19 @@
 <section class="quality pad" id="quality">
   <div class="wrap quality-inner">
     <div class="reveal">
-      <div class="eyebrow">// Quality Standards</div>
-      <h2 class="sec-title">Quality You Can Trust<br>with confidence</h2>
-      <p class="sec-sub">Every OSA product is tested for leakage, longevity, and corrosion resistance. We comply with international standards API, ASME, ISO, and DIN, with complete certification documents on every shipment.</p>
+      <div class="eyebrow">// Service Quality &amp; Standards</div>
+      <h2 class="sec-title">Service Quality You Can Trust</h2>
+      <p class="sec-sub">OSA is committed to delivering professional valve services with a strong focus on quality, safety, environmental responsibility, and continuous improvement.</p>
+      <p class="sec-sub">Our service operations are supported by internationally recognized management systems, industry certifications, and customer achievement awards.</p>
       <ul class="highlights">
-        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>100% Leak Tested</li>
-        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>ISO / CE / PED Standards</li>
-        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>TA-Luft Certified Seal</li>
-        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Fire-Safe Design</li>
-        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Complete MTR and CoC Documentation</li>
+        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>ISO 9001:2015 Quality Management</li>
+        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>ISO 45001:2018 Occupational Health &amp; Safety</li>
+        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Green Industry Certified</li>
+        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Safety &amp; Operational Excellence</li>
+        <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Recognized by Leading Industrial Customers</li>
       </ul>
       <div class="std-tags">
-        <span>API</span><span>ASME</span><span>ISO 9001</span><span>DIN</span><span>PED 2014/68/EU</span>
+        <span>QUALITY</span><span>SAFETY</span><span>SERVICE</span><span>COMPLIANCE</span><span>CONTINUOUS IMPROVEMENT</span>
       </div>
     </div>
     <div class="cert-showcase reveal">
